@@ -5,11 +5,20 @@ import (
 	"log"
 	"net/http"
 	"projects/go-rest-api/src/api/router"
+	"projects/go-rest-api/src/auto"
+	"projects/go-rest-api/src/config"
 )
 
-func Run()  {
-	fmt.Println("\n\tListening [::]:3000\n")
+func Run() {
+	config.Load()
+	auto.Load()
 
-	r:= router.New()
-	log.Fatal(http.ListenAndServe(":3000", r))
+	fmt.Println("\n\tListening [::]:", config.PORT)
+
+	listen(config.PORT)
+}
+
+func listen(port int) {
+	r := router.New()
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", port), r))
 }
