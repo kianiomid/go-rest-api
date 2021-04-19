@@ -1,11 +1,11 @@
 package auto
 
 import (
+	"api/database"
+	"api/models"
+	"api/utils/console"
 	"log"
-	models "projects/go-rest-api/src/api/models"
-	"projects/go-rest-api/src/api/utils/console"
-	"projects/go-rest-api/src/database"
-	
+
 )
 
 func Load()  {

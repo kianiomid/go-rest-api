@@ -1,8 +1,8 @@
 package database
 
 import (
+	"config"
 	"github.com/jinzhu/gorm"
-	"projects/go-rest-api/src/config"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 

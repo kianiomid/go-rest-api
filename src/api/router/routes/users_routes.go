@@ -1,8 +1,8 @@
 package routes
 
 import (
+	"api/controllers"
 	"net/http"
-	"projects/go-rest-api/src/api/controllers"
 )
 
 var userRoutes = []Route{

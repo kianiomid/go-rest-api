@@ -1,12 +1,12 @@
 package api
 
 import (
+	"api/router"
+	"auto"
+	"config"
 	"fmt"
 	"log"
 	"net/http"
-	"projects/go-rest-api/src/api/router"
-	"projects/go-rest-api/src/auto"
-	"projects/go-rest-api/src/config"
 )
 
 func Run() {

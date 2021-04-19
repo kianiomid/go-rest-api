@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"api/middlewares"
 	"github.com/gorilla/mux"
 	"net/http"
 )
@@ -17,9 +18,18 @@ func Load() []Route {
 }
 
 func SetupRoutes(r *mux.Router) *mux.Router {
-	for _, route := range Load(){
+	for _, route := range Load() {
 		r.HandleFunc(route.Url, route.Handler).Methods(route.Method)
 	}
-	
+	return r
+}
+
+func SetupRoutesWithMiddlewares(r *mux.Router) *mux.Router {
+	for _, route := range Load() {
+		r.HandleFunc(
+			route.Url,
+			middlewares.SetMiddlewareLogger(middlewares.SetMiddlewareJSON(route.Handler)),
+			).Methods(route.Method)
+	}
 	return r
 }

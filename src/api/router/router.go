@@ -1,11 +1,11 @@
 package router
 
 import (
+	"api/router/routes"
 	"github.com/gorilla/mux"
-	"projects/go-rest-api/src/api/router/routes"
 )
 
 func New() *mux.Router {
 	r := mux.NewRouter().StrictSlash(true)
-	return routes.SetupRoutes(r)
+	return routes.SetupRoutesWithMiddlewares(r)
 }

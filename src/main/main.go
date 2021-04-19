@@ -1,6 +1,6 @@
 package main
 
-import "projects/go-rest-api/src/api"
+import "api"
 
 func main() {
 	api.Run()
