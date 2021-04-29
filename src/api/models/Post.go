@@ -27,7 +27,7 @@ func (p *Post) Prepare() {
 	p.UpdatedAt = time.Now()
 }
 
-func (p *Post) Validate() error {
+func (p *Post) Validate(action string) error {
 	if p.Title == "" {
 		return errors.New("Required Title")
 	}
