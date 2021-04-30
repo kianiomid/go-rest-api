@@ -24,7 +24,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 
 	repo := crud.NewUsersRepositoryCRUD(db)
 
-	func (usersRepository repository.UserRepository){
+	func(usersRepository repository.UserRepository) {
 		users, err := usersRepository.FindAll()
 		if err != nil {
 			responses.ERROR(w, http.StatusUnprocessableEntity, err)
@@ -65,7 +65,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 
 	repo := crud.NewUsersRepositoryCRUD(db)
 
-	func (usersRepository repository.UserRepository){
+	func(usersRepository repository.UserRepository) {
 		user, err = usersRepository.Save(user)
 		if err != nil {
 			responses.ERROR(w, http.StatusUnprocessableEntity, err)
@@ -94,7 +94,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 
 	repo := crud.NewUsersRepositoryCRUD(db)
 
-	func (usersRepository repository.UserRepository){
+	func(usersRepository repository.UserRepository) {
 		user, err := usersRepository.FindById(uint32(uid))
 		if err != nil {
 			responses.ERROR(w, http.StatusBadRequest, err)
@@ -135,7 +135,7 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 
 	repo := crud.NewUsersRepositoryCRUD(db)
 
-	func (usersRepository repository.UserRepository){
+	func(usersRepository repository.UserRepository) {
 		rows, err := usersRepository.Update(uint32(uid), user)
 		if err != nil {
 			responses.ERROR(w, http.StatusBadRequest, err)
@@ -162,7 +162,7 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 
 	repo := crud.NewUsersRepositoryCRUD(db)
 
-	func (usersRepository repository.UserRepository){
+	func(usersRepository repository.UserRepository) {
 		_, err := usersRepository.Delete(uint32(uid))
 		if err != nil {
 			responses.ERROR(w, http.StatusBadRequest, err)

@@ -16,4 +16,19 @@ var postRoutes = []Route{
 		Method:  http.MethodPost,
 		Handler: controllers.CreatePost,
 	},
+	{
+		Url:     "/posts/{id}",
+		Method:  http.MethodGet,
+		Handler: controllers.GetPost,
+	},
+	{
+		Url:     "/posts/{id}",
+		Method:  http.MethodPut,
+		Handler: controllers.UpdatePost,
+	},
+	{
+		Url:     "/posts/{id}",
+		Method:  http.MethodDelete,
+		Handler: controllers.DeletePost,
+	},
 }
